@@ -1,0 +1,39 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres
+    container_name: mysite-dev-db
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=adams
+      - POSTGRES_PASSWORD=adams
+      - POSTGRES_HOST=localhost
+      - POSTGRES_PORT=5432
+      - POSTGRES_DB=adams
+    volumes:
+     - pg_data:/var/lib/postgresql/data/
+    ports:
+     - 5432:5432
+
+  app:
+    build:
+      context: .
+      target: develop
+    image: mysite-dev-image
+    container_name: mysite-dev-app
+    volumes:
+      - ./mysite/:/code/
+    ports:
+      - 8000:8000
+    #env_file:
+      #- .env
+    environment:
+      - POSTGRES_USER=adams
+      - POSTGRES_PASSWORD=adams
+      - POSTGRES_HOST=db
+      - POSTGRES_PORT=5432
+      - POSTGRES_DB=adams
+
+volumes:
+  pg_data:
