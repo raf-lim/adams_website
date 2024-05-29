@@ -21,7 +21,6 @@ from django.views.generic import TemplateView
 from django.conf.urls.static import static
 
 urlpatterns = [
-    # path('admin/', admin.site.urls),
     path("", TemplateView.as_view(template_name="pages/home.html"), name="home"),
     path("about/", TemplateView.as_view(template_name="pages/about.html"), name="about"),
     # Django Admin, use {% url 'admin:index' %}

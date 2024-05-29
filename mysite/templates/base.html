@@ -69,13 +69,13 @@
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <li class="nav-item">
-                      <a class="dropdown-item" href="{% url 'games:characters' %}">{% translate "Characters" %}</a>
+                      <a class="dropdown-item" href="#">{% translate "Characters" %}</a>
                     </li>
                     <li class="nav-item">
-                      <a class="dropdown-item" href="{% url 'games:chapters' %}">{% translate "Versions" %}</a>
+                      <a class="dropdown-item" href="#">{% translate "Versions" %}</a>
                     </li>
                     <li class="nav-item">
-                      <a class="dropdown-item" href="{% url 'games:categories' %}">{% translate "Categories" %}</a>
+                      <a class="dropdown-item" href="#">{% translate "Categories" %}</a>
                     </li>
                     <li><hr class="dropdown-divider"></li>
                     <li class="nav-item">
@@ -89,10 +89,10 @@
 
             <span class="navbar-nav">
               {% if request.user.is_authenticated %}
-                <!-- <li class="nav-item">
+                <li class="nav-item">
                   {# URL provided by django-allauth/account/urls.py #}
                   <a class="nav-link" href="{% url 'users:detail' request.user.username  %}">{% translate "My Profile" %}</a>
-                </li> -->
+                </li>
                 <li class="nav-item">
                   {# URL provided by django-allauth/account/urls.py #}
                   <a class="nav-link" href="{% url 'account_logout' %}">{% translate "Sign Out" %}</a>

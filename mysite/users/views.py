@@ -36,10 +36,8 @@ user_update_view = UserUpdateView.as_view()
 class UserRedirectView(LoginRequiredMixin, RedirectView):
     permanent = False
 
-    # def get_redirect_url(self):
-    #     return reverse("users:detail", kwargs={"username": self.request.user.username})
     def get_redirect_url(self):
-        return reverse("home")
+        return reverse("users:detail", kwargs={"username": self.request.user.username})
 
 
 user_redirect_view = UserRedirectView.as_view()
