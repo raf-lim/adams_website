@@ -1,0 +1,48 @@
+body {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    margin: 0; 
+}
+
+.startBtn {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 30px;
+  display: flex;
+  padding: 5px 50px;
+  border-radius: 5px;
+  background-color: greenyellow;
+  display: none;
+}
+
+.startBtn:hover {
+  color: white;
+  background-color: red;
+}
+
+.timer {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 30px;
+  margin-bottom: 24px;
+}
+
+.game-board {
+  width: 1240px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 24px;
+}
+
+.card {
+  width: 150px;
+  height: 150px;
+  background-color: gray;
+  cursor: pointer;
+  background-size: contain;
+}
+
+.revealed,
+.matched {
+  pointer-events: none;
+}

@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'crispy_bootstrap5',
 
     'users',
+    'webgames',
 ]
 
 MIDDLEWARE = [
@@ -165,6 +166,7 @@ STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
     #BASE_DIR / 'static',
+    BASE_DIR / 'webgames/static',
 ]
 
 # Default primary key field type
