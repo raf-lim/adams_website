@@ -4,11 +4,11 @@
 {% block title %}Memory{% endblock title %}
 
 {% block content %}
-  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  <link rel="stylesheet" href="{% static 'memory/css/style.css' %}" />
   <section class="mt-2">
     <div class="game-board"></div>
     <div class="timer">Time: <span id="timer">0</span>sec.</div> 
     <button class="startBtn">Play</button>
   </section>
-  <script src="{% static 'js/memory.js' %}"></script>
+  <script type="module" src="{% static 'memory/js/main.js' %}"></script>
 {% endblock content %}
