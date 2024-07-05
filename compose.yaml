@@ -1,5 +1,3 @@
-version: "3.8"
-
 services:
   db:
     image: postgres
@@ -34,6 +32,8 @@ services:
       - POSTGRES_HOST=db
       - POSTGRES_PORT=5432
       - POSTGRES_DB=adams
+    depends_on:
+      - db
 
 volumes:
   pg_data:
