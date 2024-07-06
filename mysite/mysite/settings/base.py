@@ -153,6 +153,10 @@ STATICFILES_DIRS = [
     #BASE_DIR / 'static',
     BASE_DIR / 'webgames/static',
 ]
+STATICFILES_FINDERS = [
+    "django.contrib.staticfiles.finders.FileSystemFinder",
+    "django.contrib.staticfiles.finders.AppDirectoriesFinder",
+]
 
 # MEDIA
 # ------------------------------------------------------------------------------
