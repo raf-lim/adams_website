@@ -83,7 +83,7 @@ if env("USE_S3"):
     # STATIC
     # Static files in this project are managed by whitenoise and therefore not sent to S3
     # ------------------------
-    # STATICFILES_STORAGE = "adams.utils.storages.StaticRootS3Boto3Storage"
+    # STATICFILES_STORAGE = "utils.storages.StaticRootS3Boto3Storage"
     # COLLECTFAST_STRATEGY = "collectfast.strategies.boto3.Boto3Strategy"
     # STATIC_URL = f"https://{aws_s3_domain}/static/"
 
@@ -91,7 +91,7 @@ if env("USE_S3"):
     # MEDIA
     # Only media files are being stored on S3
     # ------------------------------------------------------------------------------
-    DEFAULT_FILE_STORAGE = "utils.storages.MediaRootS3Boto3Storage"
+    DEFAULT_FILE_STORAGE = "mysite.utils.storages.MediaRootS3Boto3Storage"
     MEDIA_URL = f"https://{aws_s3_domain}/media/"
 
 
