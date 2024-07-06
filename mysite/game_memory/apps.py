@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class WebgamesConfig(AppConfig):
+class GameMemoryConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'webgames'
+    name = 'game_memory'
