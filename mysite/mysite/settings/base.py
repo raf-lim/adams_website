@@ -10,7 +10,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 env = environ.Env()
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
@@ -20,16 +19,14 @@ DEBUG = env.bool("DJANGO_DEBUG", False)
 
 ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1"]
 
-
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'collectfast',
+    'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
     'django.forms',
     'allauth',
@@ -40,7 +37,7 @@ INSTALLED_APPS = [
     'sorl.thumbnail',
     # Own apps
     'users',
-    'webgames',
+    'game_memory',
 ]
 
 MIDDLEWARE = [
@@ -88,7 +85,6 @@ CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
@@ -99,7 +95,6 @@ DATABASES = {
     ),
 }
 DATABASES["default"]["ATOMIC_REQUESTS"] = True
-
 
 # AUTHENTICATION
 # ------------------------------------------------------------------------------
@@ -115,8 +110,6 @@ AUTH_USER_MODEL = "users.User"
 LOGIN_REDIRECT_URL = "users:redirect"
 # https://docs.djangoproject.com/en/dev/ref/settings/#login-url
 LOGIN_URL = "account_login"
-
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -136,7 +129,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
@@ -147,16 +139,11 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
-STATIC_ROOT = str(BASE_DIR / 'staticfiles')
 STATIC_URL = 'static/'
+STATIC_ROOT = str(BASE_DIR / 'staticfiles')
 
 STATICFILES_DIRS = [
-    #BASE_DIR / 'static',
-    BASE_DIR / 'webgames/static',
-]
-STATICFILES_FINDERS = [
-    "django.contrib.staticfiles.finders.FileSystemFinder",
-    "django.contrib.staticfiles.finders.AppDirectoriesFinder",
+    BASE_DIR / 'static',
 ]
 
 # MEDIA
@@ -202,7 +189,6 @@ EMAIL_BACKEND = env(
 # https://docs.djangoproject.com/en/dev/ref/settings/#email-timeout
 EMAIL_TIMEOUT = 5
 
-
 # ADMIN
 # ------------------------------------------------------------------------------
 # Django Admin URL.
@@ -234,7 +220,6 @@ LOGGING = {
     },
     'root': {'level': 'INFO', 'handlers': ['console']},
 }
-
 
 # django-allauth
 # ------------------------------------------------------------------------------
