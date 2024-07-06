@@ -5,8 +5,8 @@ poetry init
 poetry shell
 poetry install
 
-poetry export -f requirements.txt --without-hashes --without-urls --output requirements.txt
-poetry export -f requirements.txt --with test --without-hashes --without-urls --output requirements.txt
+poetry export -f requirements.txt --with dev --with test --without-hashes --without-urls --output compose/local/requirements.txt
+poetry export -f requirements.txt without dev --without test --with-hashes --without-urls --output compose/production/requirements.txt
 
 python manage.py makemigrations
 python manage.py migrate

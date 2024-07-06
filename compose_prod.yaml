@@ -17,12 +17,12 @@ services:
   app:
     build:
       context: .
-      dockerfile: ./compose/local/Dockerfile
-      target: develop
-    image: mysite-dev-image
-    container_name: mysite-dev-app
+      dockerfile: ./compose/production/Dockerfile
+      target: production
+    image: mysite-prod-image
+    container_name: mysite-prod-app
     volumes:
-      - ./mysite/:/code/
+      - ./mysite/:/home/app/code/
     ports:
       - 8000:8000
     #env_file:
