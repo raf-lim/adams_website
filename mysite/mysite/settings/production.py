@@ -91,7 +91,7 @@ if env("USE_S3"):
     # MEDIA
     # Only media files are being stored on S3
     # ------------------------------------------------------------------------------
-    DEFAULT_FILE_STORAGE = "mysite.utils.storages.MediaRootS3Boto3Storage"
+    DEFAULT_FILE_STORAGE = "utils.storages.MediaRootS3Boto3Storage"
     MEDIA_URL = f"https://{aws_s3_domain}/media/"
 
 

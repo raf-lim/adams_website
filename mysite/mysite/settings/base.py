@@ -242,10 +242,10 @@ ACCOUNT_EMAIL_REQUIRED = False
 # # https://django-allauth.readthedocs.io/en/latest/configuration.html
 ACCOUNT_EMAIL_VERIFICATION = "none"
 # https://django-allauth.readthedocs.io/en/latest/configuration.html
-ACCOUNT_ADAPTER = 'mysite.users.adapters.AccountAdapter'
+ACCOUNT_ADAPTER = 'users.adapters.AccountAdapter'
 # https://django-allauth.readthedocs.io/en/latest/forms.html
-ACCOUNT_FORMS = {'signup': 'mysite.users.forms.UserSignupForm'}
+ACCOUNT_FORMS = {'signup': 'users.forms.UserSignupForm'}
 # https://django-allauth.readthedocs.io/en/latest/configuration.html
-SOCIALACCOUNT_ADAPTER = 'mysite.users.adapters.SocialAccountAdapter'
+SOCIALACCOUNT_ADAPTER = 'users.adapters.SocialAccountAdapter'
 # https://django-allauth.readthedocs.io/en/latest/forms.html
-SOCIALACCOUNT_FORMS = {'signup': 'mysite.users.forms.UserSocialSignupForm'}
+SOCIALACCOUNT_FORMS = {'signup': 'users.forms.UserSocialSignupForm'}
