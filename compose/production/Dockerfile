@@ -5,7 +5,8 @@ ENV PYTHONUNBUFFERED=1
 RUN apt-get update && \
     apt-get install -y --no-install-recommends gcc
 COPY compose/production/requirements.txt .
-RUN pip wheel --no-cache-dir --no-deps --wheel-dir /home/app/code/wheels -r requirements.txt
+RUN pip install --upgrade pip && \
+    pip wheel --no-cache-dir --no-deps --wheel-dir /home/app/code/wheels -r requirements.txt
 
 FROM builder AS production
 COPY --from=builder /home/app/code/wheels /wheels

@@ -42,8 +42,9 @@ END
 >&2 echo 'PostgreSQL is available'
 
 
-if [ "${DJANGO_SETTINGS_MODULE="mysite.settings"}" = "mysite.settings" ]; then
+if [ "${DJANGO_SETTINGS_MODULE="mysite.settings.local"}" = "mysite.settings.local" ]; then
   python manage.py migrate \
+    && python manage.py collectstatic --noinput \
     && python manage.py runserver 0.0.0.0:8000
 else
   python manage.py migrate \
