@@ -84,6 +84,9 @@ STORAGES = {
         'BACKEND': 'utils.storages.MediaRootS3Boto3Storaage',
         'OPTIONS': {},
     },
+    'staticfiles': {
+        'BACKEND': 'whitenoise.storage.CompressedManifestStaticFilesStorage',
+    },
 }
 
 # STATIC
