@@ -1,7 +1,7 @@
 FROM python:3.12.4-slim AS builder
 WORKDIR /code
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
 RUN apt-get update && \
     apt-get install -y --no-install-recommends gcc
 COPY compose/local/requirements.txt .
