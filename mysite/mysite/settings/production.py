@@ -84,7 +84,7 @@ if env("USE_S3"):
     # Static files in this project are managed by whitenoise and therefore not sent to S3
     # ------------------------
     # STATICFILES_STORAGE = "utils.storages.StaticRootS3Boto3Storage"
-    # COLLECTFAST_STRATEGY = "collectfast.strategies.boto3.Boto3Strategy"
+    COLLECTFAST_STRATEGY = "collectfast.strategies.boto3.Boto3Strategy"
     # STATIC_URL = f"https://{aws_s3_domain}/static/"
 
 
