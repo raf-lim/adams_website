@@ -1,18 +1,24 @@
 {% extends "base.html" %}
 {% load i18n %}
-{% block title %}Robots{% endblock title %}
+{% block title %}Adams{% endblock title %}
 
 {% block content %}
 
 <div class="container">
   <div class="d-grid">
     {% if request.user.is_superuser %}
-      <p><a href="#" class="btn btn-outline-primary col-sm-3" type="button">{% translate "Robots" %}</a></p>
-      <p><a href="#" class="btn btn-outline-secondary col-sm-3" type="button">{% translate "Characters" %}</a></p>
-      <p><a href="#" class="btn btn-outline-warning col-sm-3" type="button">{% translate "Versions" %}</a></p>
-      <p><a href="#" class="btn btn-outline-success col-sm-3" type="button">{% translate "Categories" %}</a></p>
+      <p><a href="{% url 'aircrafts:aircrafts' %}" class="btn btn-outline-primary col-sm-3" type="button">{% translate "Aircrafts" %}</a></p>
+      <p><a href="{% url 'aircrafts:manufacturers' %}" class="btn btn-outline-secondary col-sm-3" type="button">{% translate "Aircrafts Manufacturers" %}</a></p>
+      <p><a href="{% url 'aircrafts:engine_categories' %}" class="btn btn-outline-secondary col-sm-3" type="button">{% translate "Aircrafts Engine Categories" %}</a></p>
+      <p><a href="{% url 'games:games' %}" class="btn btn-outline-primary col-sm-3" type="button">{% translate "Games" %}</a></p>
+      <p><a href="{% url 'games:categories' %}" class="btn btn-outline-success col-sm-3" type="button">{% translate "Games Categories" %}</a></p>
+      <p><a href="{% url 'games:chapters' %}" class="btn btn-outline-success col-sm-3" type="button">{% translate "Games Chapters" %}</a></p>
+      <p><a href="{% url 'games:characters' %}" class="btn btn-outline-secondary col-sm-3" type="button">{% translate "Games Characters" %}</a></p>
+      <p><a href="{% url 'memory:memory' %}" class="btn btn-outline-primary col-sm-3" type="button">{% translate "Memory" %}</a></p>
     {% else %}
-      <p><a href="#" class="btn btn-outline-primary col-sm-3" type="button">{% translate "Robots" %}</a></p>
+      <p><a href="{% url 'aircrafts:aircrafts' %}" class="btn btn-outline-primary col-sm-3" type="button">{% translate "Aircrafts" %}</a></p>
+      <p><a href="{% url 'games:games' %}" class="btn btn-outline-primary col-sm-3" type="button">{% translate "Games" %}</a></p>
+      <p><a href="{% url 'memory:memory' %}" class="btn btn-outline-primary col-sm-3" type="button">{% translate "Memory" %}</a></p>
     {% endif %}
 </div>
 

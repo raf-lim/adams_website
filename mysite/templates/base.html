@@ -56,25 +56,31 @@
           >
             <span class="navbar-toggler-icon"></span>
           </button>
-          <a class="navbar-brand" href="{% url 'home' %}">Robots </a>
+          <a class="navbar-brand" href="{% url 'home' %}">Adams</a>
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item active">
                 <a class="nav-link" href="{% url 'home' %}">Home <span class="visually-hidden">(current)</span></a>
               </li>
-              <li class="nav-item dropdown">
+              <!-- <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Games
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li class="nav-item">
-                    <a class="dropdown-item" href="{% url 'game_memory:game_memory' %}">{% translate "Memory" %}</a>
+                    <a class="dropdown-item" href="{% url 'memory:memory' %}">{% translate "Memory" %}</a>
                   </li>
                 </ul>
+              </li> -->
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'aircrafts:aircrafts' %}">{% translate "Aircrafts" %}</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">{% translate "Robots" %}</a>
+                <a class="nav-link" href="{% url 'games:games' %}">{% translate "Games" %}</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'memory:memory' %}">{% translate "Memory" %}</a>
               </li>
               {% if request.user.is_superuser %}
                 <li class="nav-item dropdown">
@@ -83,13 +89,20 @@
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <li class="nav-item">
-                      <a class="dropdown-item" href="#">{% translate "Characters" %}</a>
+                      <a class="dropdown-item" href="{% url 'aircrafts:manufacturers' %}">{% translate "Aircraft Manufacturers" %}</a>
                     </li>
                     <li class="nav-item">
-                      <a class="dropdown-item" href="#">{% translate "Versions" %}</a>
+                      <a class="dropdown-item" href="{% url 'aircrafts:engine_categories' %}">{% translate "Aircraft Engine Categories" %}</a>
+                    </li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li class="nav-item">
+                      <a class="dropdown-item" href="{% url 'games:categories' %}">{% translate "Game Categories" %}</a>
                     </li>
                     <li class="nav-item">
-                      <a class="dropdown-item" href="#">{% translate "Categories" %}</a>
+                      <a class="dropdown-item" href="{% url 'games:chapters' %}">{% translate "Game Chapters" %}</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="dropdown-item" href="{% url 'games:characters' %}">{% translate "Game Characters" %}</a>
                     </li>
                     <li><hr class="dropdown-divider"></li>
                     <li class="nav-item">
