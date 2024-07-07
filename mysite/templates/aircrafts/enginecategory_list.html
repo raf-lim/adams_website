@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title%}Engine Categories{% endblock title %}
+
+{% block content %}
+
+  <table class="table table-sm">
+    <thead class="align-middle">
+      <tr>
+        <th>Category</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody class="align-middle">
+      {% for obj in object_list %}
+        <tr>
+          <td><a href="{% url 'aircrafts:engine_category_detail' obj.pk %}">{{ obj.name }}</a></td>
+          <td>
+            <a href="{% url 'aircrafts:engine_category_update' obj.pk %}" class="btn btn-outline-secondary">Edit</a>
+            <a href="{% url 'aircrafts:engine_category_delete' obj.pk %}" class="btn btn-outline-danger">Delete</a></td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <p class="mt-5"><a href="{% url 'aircrafts:engine_category_create' %}" class="btn btn-primary">Add new category</a></p>
+
+{% endblock content %}
