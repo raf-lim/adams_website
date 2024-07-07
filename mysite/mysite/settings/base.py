@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'sorl.thumbnail',
     # Own apps
     'users',
-    'game_memory',
+    'aircrafts',
+    'games',
+    'memory',
 ]
 
 MIDDLEWARE = [
@@ -91,7 +93,7 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 DATABASES = {
     "default": env.db(
         "DATABASE_URL",
-        default="postgresql://adam:adam@localhost:5432/adam",
+        default="postgresql://adams:adams@db:5432/adams",
     ),
 }
 DATABASES["default"]["ATOMIC_REQUESTS"] = True
@@ -192,7 +194,7 @@ EMAIL_TIMEOUT = 5
 # ADMIN
 # ------------------------------------------------------------------------------
 # Django Admin URL.
-ADMIN_URL = 'admin-rs'
+ADMIN_URL = 'admin-rs/'
 # https://docs.djangoproject.com/en/dev/ref/settings/#admins
 ADMINS = [("""Rafal S.""", 'raf.sukiennik@gmail.com')]
 # https://docs.djangoproject.com/en/dev/ref/settings/#managers
