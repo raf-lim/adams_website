@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title%}Categories{% endblock title %}
+
+{% block content %}
+
+  <table class="table table-sm">
+    <thead class="align-middle">
+      <tr>
+        <th>Category</th>
+      </tr>
+    </thead>
+    <tbody class="align-middle">
+      {% for obj in object_list %}
+        <tr>
+          <td><a href="{% url 'games:category_detail' obj.pk %}">{{ obj.name }}</a></td>
+          <td>
+            <a href="{% url 'games:category_update' obj.pk %}" class="btn btn-outline-secondary">Edit</a>
+            <a href="{% url 'games:category_delete' obj.pk %}" class="btn btn-outline-danger">Delete</a></td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <p class="mt-5"><a href="{% url 'games:category_create' %}" class="btn btn-primary">Add new category</a></p>
+
+{% endblock content %}

@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% load thumbnail %}
+{% load i18n %}
+{% block title%}{{ object.name }}{% endblock title %}
+{% block content %}
+  <h1 class="mb-3">{{ object.name }}</h1>
+  <p>
+    {% if object.image %}
+      {% thumbnail object.image "400x400" as im %}
+        <img src="{{ im.url }}"></a>
+      {% endthumbnail %}
+    {% endif %}
+  </p>
+  {% if object.chapter is not None %}
+    <p>{{ object.category }}</p>
+  {% endif %}
+  {% if object.website %}
+    <p class="pb-2"><a href="{{ object.website }}" target="_blank">{% translate "Link to" %} {{ object.name }} {% translate "game" %}</a></p>
+  {% endif %}
+
+  {% if object.characters.all|length > 0 %}
+    <table class="table table-sm">
+      <thead class="align-middle">
+        <tr>
+          <th>Character</th>
+          <th>Name</th>
+          <th>Chapter</th>
+        </tr>
+      </thead>
+      <tbody class="align-middle">
+        {% for obj in object.characters.all %}
+          <tr>
+            <td>
+              {% if obj.image %}
+                  {% thumbnail obj.image "81x81" as im %}
+                    <a href="{% url 'games:character_detail' obj.pk %}"><img src="{{ im.url }}"></a>
+                  {% endthumbnail %}
+              {% endif %}
+            </td>
+            <td><a href="{% url 'games:character_detail' obj.pk %}">{{ obj.name }}</a></td>
+            {% if obj.chapter is not None %}
+              <td>{{ obj.chapter }}</td>
+            {% else %}
+              <td></td>
+            {% endif %}
+            {% if request.user.is_authenticated %}
+              <td>
+                <a href="{% url 'games:character_update' obj.pk %}" class="btn btn-outline-secondary">Edit</a>
+                <a href="{% url 'games:character_delete' obj.pk %}" class="btn btn-outline-danger">Delete</a>
+              </td>
+            {% endif %}
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% endif %}
+
+
+  <div class="mt-5">
+    {% if request.user.is_authenticated %}
+      <a href="{% url 'games:character_add' object.pk %}" class="btn btn-outline-primary">Add new character</a>
+    {% endif %}
+    <a href="{% url 'games:games' %}" class="btn btn-outline-success">Go to all games</a>
+  </div>
+
+
+
+
+{% endblock content %}
+
+

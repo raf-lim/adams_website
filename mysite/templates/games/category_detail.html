@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block title%}{{ object.name }}{% endblock title %}
+{% block content %}
+  <h1>{{ object.name }}</h1>
+  <p>{{ object.description }}</p>
+  <p class="mt-5"><a href="{% url 'games:category_update' object.pk %}" class="btn btn-secondary">Edit category</a></p>
+  <p><a href="{% url 'games:categories' %}" class="btn btn-warning">All categories</a></p>
+{% endblock content %}
+
+
