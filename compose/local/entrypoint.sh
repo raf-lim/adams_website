@@ -52,5 +52,5 @@ if [ "${DJANGO_SETTINGS_MODULE="mysite.settings.local"}" = "mysite.settings.loca
 else
   python manage.py migrate \
     && python manage.py collectstatic --noinput \
-    && gunicorn config.wsgi
+    && gunicorn mysite.wsgi
 fi
