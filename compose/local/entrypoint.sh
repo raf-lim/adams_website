@@ -41,6 +41,9 @@ END
 
 >&2 echo 'PostgreSQL is available'
 
+if [ ! -d staticfiles ]; then
+    mkdir staticfiles
+fi
 
 if [ "${DJANGO_SETTINGS_MODULE="mysite.settings.local"}" = "mysite.settings.local" ]; then
   python manage.py migrate \
