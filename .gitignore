@@ -8,3 +8,6 @@
 
 media/
 staticfiles/
+
+.coverage
+**/htmlcov
