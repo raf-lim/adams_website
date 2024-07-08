@@ -81,7 +81,7 @@ aws_s3_domain = AWS_S3_CUSTOM_DOMAIN or f"{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws
 
 STORAGES = {
     'default': {
-        'BACKEND': 'utils.storages.MediaRootS3Boto3Storaage',
+        'BACKEND': 'utils.storages.MediaRootS3Boto3Storage',
         'OPTIONS': {},
     },
     'staticfiles': {
