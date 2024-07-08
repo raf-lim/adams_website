@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+{% block title %}Memory{% endblock title %}
+
+{% block content %}
+  <link rel="stylesheet" href="{% static 'game_memory/css/style.css' %}" />
+  <section class="mt-2">
+    <div class="game-board"></div>
+    <div class="timer">Time: <span id="timer">0</span>sec.</div> 
+    <button class="startBtn">Play</button>
+  </section>
+  <script type="module" src="{% static 'game_memory/js/main.js' %}"></script>
+{% endblock content %}

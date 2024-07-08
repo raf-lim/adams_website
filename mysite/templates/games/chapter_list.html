@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title%}Chapters{% endblock title %}
+
+{% block content %}
+
+  <table class="table table-sm">
+    <thead class="align-middle">
+      <tr>
+        <th>Chapter</th>
+      </tr>
+    </thead>
+    <tbody class="align-middle">
+      {% for obj in object_list %}
+        <tr>
+          <td>{{ obj.name }}</td>
+          <td>
+            <a href="{% url 'games:chapter_update' obj.pk %}" class="btn btn-outline-secondary">Edit</a>
+            <a href="{% url 'games:chapter_delete' obj.pk %}" class="btn btn-outline-danger">Delete</a></td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <p class="mt-5"><a href="{% url 'games:chapter_create' %}" class="btn btn-primary">Add new chapter</a></p>
+
+{% endblock content %}

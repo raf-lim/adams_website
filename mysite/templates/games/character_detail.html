@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load thumbnail %}
+{% load i18n %}
+{% block title%}Characters{% endblock title %}
+
+{% block content %}
+
+  <h1 class="mb-3">{{ object.name }}</h1>
+  <p>
+    {% if object.image %}
+      {% thumbnail object.image "400x400" as im %}
+        <img src="{{ im.url }}">
+      {% endthumbnail %}
+    {% endif %}
+  </p>
+  <p>{{ object.description }}</p>
+  <p><a href="{% url 'games:game_detail' object.game.pk %}">{{ object.game.name }}</a> {% if object.chapter is not None %}{{ object.chapter }}{% endif %}</p>
+  {% if request.user.is_authenticated %}
+    <p class="mt-5"><a href="{% url 'games:character_update' object.pk %}" class="btn btn-secondary">Edit character</a></p>
+    <p><a href="{% url 'games:character_add' object.game.pk %}" class="btn btn-primary">Add character to {{ object.game.name }}</a></p>
+  {% endif %}
+  <p class="mt-5"><a href="{% url 'games:game_detail' object.game.pk %}" class="btn btn-warning">All characters in {{ object.game.name }}</a></p>
+
+{% endblock content %}
+
+

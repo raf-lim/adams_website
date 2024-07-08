@@ -7,3 +7,7 @@
 .pytest_cache
 
 media/
+staticfiles/
+
+.coverage
+**/htmlcov

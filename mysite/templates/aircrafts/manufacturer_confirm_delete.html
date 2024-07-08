@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block title%}Manufacturers{% endblock title %}
+{% block content %}
+  <form method="post">{% csrf_token %}
+    <p>Are you sure you want to delete "{{ object }}"?</p>
+    {{ form|crispy }}
+    <input type="submit" value="Confirm" class="btn btn-danger">
+    <a href="{% url 'aircrafts:manufacturers' %}" class="btn btn-primary">Cancel</a>
+  </form>
+{% endblock content %}
+

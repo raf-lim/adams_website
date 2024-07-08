@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static i18n %}
+{% load thumbnail %}
+{% block title%}Characters{% endblock title %}
+{% block content %}
+
+  <h1>{{ title }}</h1>
+  <table class="table table-lg">
+    <thead class="thead-light align-middle">
+      <tr>
+        <th>Character</th>
+        <th>Name</th>
+        <th>Game</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody class="align-middle">
+      {% for obj in object_list %}
+      <tr>
+        <td>
+          {% if obj.image %}
+              {% thumbnail obj.image "81x54" as im %}
+                  <a href="{% url 'games:character_detail' obj.pk %}"><img src="{{ im.url }}"></a>
+              {% endthumbnail %}
+          {% endif %}
+        </td>
+        <td><a href="{% url 'games:character_detail' obj.pk %}">{{ obj.name }}</a></td>
+        {% if obj.game.pk %}
+          <td><a href="{% url 'games:game_detail' obj.game.pk %}">{{ obj.game }}</a></td>
+        {% endif %}
+        <td>
+          <a href="{% url 'games:character_update' obj.pk %}" class="btn btn-outline-secondary">Edit</a>
+          <a href="{% url 'games:character_delete' obj.pk %}" class="btn btn-outline-danger">Delete</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock content %}

@@ -1,5 +1,3 @@
-version: "3.8"
-
 services:
   db:
     image: postgres
@@ -19,6 +17,7 @@ services:
   app:
     build:
       context: .
+      dockerfile: ./compose/local/Dockerfile
       target: develop
     image: mysite-dev-image
     container_name: mysite-dev-app
@@ -34,6 +33,8 @@ services:
       - POSTGRES_HOST=db
       - POSTGRES_PORT=5432
       - POSTGRES_DB=adams
+    depends_on:
+      - db
 
 volumes:
   pg_data:

@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load thumbnail %}
+{% load i18n %}
+{% block title%}{{ object.name }}{% endblock title %}
+{% block content %}
+  <h1>{{ object.name }}</h1>
+  <section class="mt-4">
+    {% if object.image %}
+      {% thumbnail object.image "400x400" as im %}
+        <img src="{{ im.url }}"></a>
+      {% endthumbnail %}
+    {% endif %}
+  </section>
+  {% if object.engine_category %}
+    <section class="mt-4">
+      <span>{% translate "Category" %}: {{ object.engine_category}}</span>
+    </section>
+    
+  {% endif %}
+  {% if object.website %}
+    <section class="mt-4">
+      <span>Website: 
+        <a href="{{ object.website }}" target="_blank">{{ object.website }}</a>
+      </span>
+    </section>
+  {% endif %}
+  {% if object.description %}
+    <section class="mt-4">
+      <h5>{% translate "Description" %}</h5>
+      <p>{{ object.description }}</p>
+    </section>
+  {% endif %}
+  {% if request.user.is_authenticated %}
+    <section class="mt-4">
+      <a href="{% url 'aircrafts:aircraft_update' object.pk %}" class="btn btn-outline-secondary mt-4">Edit</a>
+    </section>
+  {% endif %}
+
+  <section class="mt-4">
+    {% if request.user.is_authenticated %}
+      <a href="{% url 'aircrafts:aircraft_create' %}" class="btn btn-outline-primary">Add new aircraft</a>
+    {% endif %}
+    <a href="{% url 'aircrafts:aircrafts' %}" class="btn btn-outline-success">Go to all aircrafts</a>
+  </section>
+
+{% endblock content %}
+
+

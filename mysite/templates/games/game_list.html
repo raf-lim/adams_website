@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load thumbnail %}
+{% block title%}Games{% endblock title %}
+{% block content %}
+
+  <table class="table table-lg">
+    <thead class="align-middle">
+      <tr>
+        <th>Game</th>
+        <th>Name</th>
+        <th>Website</th>
+        <th>Category</th>
+      </tr>
+    </thead>
+    <tbody class="align-middle">
+      {% for obj in object_list %}
+        <tr>
+          <td>
+            {% if obj.image %}
+              {% thumbnail obj.image "81x54" as im %}
+                <a href="{% url 'games:game_detail' obj.pk %}"><img src="{{ im.url }}"></a>
+              {% endthumbnail %}
+            {% endif %}
+          </td>
+          <td><a href="{% url 'games:game_detail' obj.pk %}">{{ obj.name }}</a></td>
+          {% if obj.website %}
+            <td><a href="{{ obj.website }}" target="_blank">Link</a></td>
+          {% else %}
+            <td></td>
+          {% endif %}
+          {% if obj.category %}
+          <td>{{ obj.category }}</td>
+          {% else %}
+          <td></td>
+          {% endif %}
+          {% if request.user.is_authenticated %}
+          <td>
+            <a href="{% url 'games:game_update' obj.pk %}" class="btn btn-outline-secondary">Edit</a>
+            <a href="{% url 'games:game_delete' obj.pk %}" class="btn btn-outline-danger">Delete</a>
+          </td>
+          {% endif %}
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% if request.user.is_authenticated %}
+  <p class="mt-5"><a href="{% url 'games:game_create' %}" class="btn btn-outline-primary">Add new game</a></p>
+  {% endif %}
+{% endblock content %}

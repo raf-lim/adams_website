@@ -28,6 +28,9 @@ urlpatterns = [
     # User management
     path("users/", include("users.urls", namespace="users")),
     path("accounts/", include("allauth.urls")),
-    path("webgames/", include("webgames.urls", namespace="webgames")),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    # Apps
+    path("aircrafts/", include("aircrafts.urls", namespace="aircrafts")),
+    path("games/", include("games.urls", namespace="games")),
+    path("memory/", include("memory.urls", namespace="memory")),
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title%}Manufacturers{% endblock title %}
+
+{% block content %}
+
+  <table class="table table-sm">
+    <thead class="align-middle">
+      <tr>
+        <th>Manufacturer</th>
+        <th>Website</th>
+      </tr>
+    </thead>
+    <tbody class="align-middle">
+      {% for obj in object_list %}
+        <tr>
+          <td><a href="{% url 'aircrafts:manufacturer_detail' obj.pk %}">{{ obj.name }}</a></td>
+          {% if obj.website %}
+          <td><a href="{{ obj.website }}">{{ obj.website }}</a></td>
+          {% else %}
+          <td></td>
+          {% endif %}
+          <td>
+            <a href="{% url 'aircrafts:manufacturer_update' obj.pk %}" class="btn btn-outline-secondary">Edit</a>
+            <a href="{% url 'aircrafts:manufacturer_delete' obj.pk %}" class="btn btn-outline-danger">Delete</a></td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <p class="mt-5"><a href="{% url 'aircrafts:manufacturer_create' %}" class="btn btn-primary">Add new manufacturer</a></p>
+
+{% endblock content %}
