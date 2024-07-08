@@ -1,7 +1,7 @@
 ### Adam's website
 https://adams.up.railway.app/
 
-Simple CRUD application for storing information about aircrafts and games developed for a 10 year old kid with Django framework. Most of commented lines in the code are left intentionally for possible use in the future.
+Simple CRUD application for storing information about aircrafts and games developed for a 10 year old kid with Django framework. Most of commented lines in the code are left intentionally for possible use in the future. In production AWS S3 Bucket is configured for for serving media files. Static files are still being served by Whitenoise on the app's server.
 
 ### To run the project in development mode:
 Clone the repository for github.com
