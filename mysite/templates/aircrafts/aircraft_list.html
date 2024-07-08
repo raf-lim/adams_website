@@ -38,7 +38,11 @@
             <td></td>
           {% endif %}
           {% endcomment %}
-          <td>{{ obj.engine_category }}</td>
+          {% if obj.category %}
+            <td>{{ obj.engine_category }}</td>
+          {% else %}
+            <td></td>
+          {% endif %}
           {% if request.user.is_authenticated %}
           <td>
             <a href="{% url 'aircrafts:aircraft_update' obj.pk %}" class="btn btn-outline-secondary">Edit</a>
