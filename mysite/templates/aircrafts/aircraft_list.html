@@ -27,7 +27,7 @@
           </td>
           <td><a href="{% url 'aircrafts:aircraft_detail' obj.pk %}">{{ obj.name }}</a></td>
           {% if obj.manufacturer %}
-            <td>{{ obj.manufacturer }}"</td>
+            <td>{{ obj.manufacturer }}</td>
           {% else %}
             <td></td>
           {% endif %}
@@ -38,7 +38,7 @@
             <td></td>
           {% endif %}
           {% endcomment %}
-          {% if obj.category %}
+          {% if obj.engine_category %}
             <td>{{ obj.engine_category }}</td>
           {% else %}
             <td></td>
